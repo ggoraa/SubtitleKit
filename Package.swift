@@ -6,7 +6,8 @@ import PackageDescription
 let package = Package(
     name: "SubtitleKit",
     platforms: [
-        .macOS(.v10_12)
+        .macOS(.v10_12),
+        .iOS(.v10)
     ],
     products: [
         .library(
