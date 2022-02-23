@@ -7,7 +7,7 @@ Package for creating, modifying, and managing subtitle files, such as SubRip (.s
 | Format | File extension | Is supported |
 | --- | --- | --- |
 | SubRip | .srt | Yes |
-| WebVTT | .vtt | No |
+| WebVTT | .vtt | Partially |
 | SubViewer | .sub | No |
 | YouTube Captions | .sbv | No |
 | TTML | .ttml | No |
