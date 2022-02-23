@@ -18,6 +18,10 @@ public struct SubRipParser: Parser {
     }
     
     public func parse() throws -> Output {
+        // Check whether the file is blank or not
+        if fileContent.isBlank {
+            return []
+        }
         // First step, split everything by spaces and newlines
         let nodes = fileContent.components(separatedBy: "\n\n")
         var parsedNodes: Output = []
@@ -44,7 +48,7 @@ public struct SubRipParser: Parser {
             for (index, row) in textRows.enumerated() {
                 text.append(row)
                 if index < textRows.count - 1 {
-                    text.append(" ")
+                    text.append("\n")
                 }
             }
             
