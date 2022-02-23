@@ -1,8 +1,8 @@
 import XCTest
 @testable import SubtitleKit
-@testable import Parser
+@testable import Backend
 
-class SubRipParserTests: XCTestCase {
+class SubRipTests: XCTestCase {
     
     // MARK: - Blanks
     
@@ -48,7 +48,7 @@ a subtitle.
 """)
         } catch {
             switch error {
-                case ParserError.badIndexDeclaration(let column, let row):
+                case SubRipParserError.badIndexDeclaration(let column, let row):
                     XCTAssert(row == 0)
                     XCTAssert(column == 1)
                 default:
@@ -67,7 +67,7 @@ a subtitle.
 """)
         } catch {
             switch error {
-                case ParserError.badTimeIntervalDeclaration(let column, let row):
+                case SubRipParserError.badTimeIntervalDeclaration(let column, let row):
                     XCTAssert(row == 1)
                     XCTAssert(column == 0)
                 default:
@@ -84,7 +84,7 @@ a subtitle.
 """)
         } catch {
             switch error {
-                case ParserError.notFullNodeDeclaration(let column, let row):
+                case SubRipParserError.notFullNodeDeclaration(let column, let row):
                     XCTAssert(row == 0)
                     XCTAssert(column == 0)
                 default:

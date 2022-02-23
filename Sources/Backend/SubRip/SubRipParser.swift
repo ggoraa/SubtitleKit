@@ -1,5 +1,5 @@
 //
-//  SubRipParser.swift
+//  Parser.swift
 //  
 //
 //  Created by Егор Яковенко on 22.02.2022.
@@ -8,8 +8,8 @@
 import Foundation
 
 public struct SubRipParser: Parser {
-    public typealias Output = SubRipSubtitles
     public typealias Input = String
+    public typealias Output = SubRipSubtitles
 
     public var fileContent: Input
     
@@ -31,11 +31,11 @@ public struct SubRipParser: Parser {
             
             // And a basic check whether it is fully declared
             guard nodeRows.count >= 3 else {
-                throw ParserError.notFullNodeDeclaration(column: 0, row: index)
+                throw SubRipParserError.notFullNodeDeclaration(column: 0, row: index)
             }
             
             guard let nodeIndex = Int(nodeRows[0]) else {
-                throw ParserError.badIndexDeclaration(column: 1, row: index)
+                throw SubRipParserError.badIndexDeclaration(column: 1, row: index)
             }
             
             let timeInterval = try parseTimeInterval(rawString: nodeRows[1], rowOperatedOn: index + 1)
@@ -66,21 +66,21 @@ public struct SubRipParser: Parser {
         
         // Checks that verifies that the structure is alright
         guard split[0].range(of: #"\d\d:\d\d:\d\d,\d\d\d"#, options: .regularExpression) != nil else {
-            throw ParserError.badTimeIntervalDeclaration(
+            throw SubRipParserError.badTimeIntervalDeclaration(
                 column: 0,
                 row: row
             )
         }
         
         guard split[1] == "-->" else {
-            throw ParserError.badTimeIntervalDeclaration(
+            throw SubRipParserError.badTimeIntervalDeclaration(
                 column: split[0].count + 1,
                 row: row
             )
         }
         
         guard split[2].range(of: #"\d\d:\d\d:\d\d,\d\d\d"#, options: .regularExpression) != nil else {
-            throw ParserError.badTimeIntervalDeclaration(
+            throw SubRipParserError.badTimeIntervalDeclaration(
                 column: 0,
                 row: row
             )

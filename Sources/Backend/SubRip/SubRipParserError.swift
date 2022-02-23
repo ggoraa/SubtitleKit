@@ -1,5 +1,5 @@
 //
-//  ParserError.swift
+//  SubRipParserError.swift
 //  
 //
 //  Created by Егор Яковенко on 22.02.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ParserError: Error {
+public enum SubRipParserError: Error {
     case badIndexDeclaration(column: Int, row: Int)
     case badTimeIntervalDeclaration(column: Int, row: Int)
     case notFullNodeDeclaration(column: Int, row: Int)
