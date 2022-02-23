@@ -17,11 +17,11 @@ let package = Package(
     dependencies: [],
     targets: [
         .target(
-            name: "Parser"
+            name: "Backend"
         ),
         .target(
             name: "SubtitleKit",
-            dependencies: ["Parser"]),
+            dependencies: ["Backend"]),
         .testTarget(
             name: "SubtitleKitTests",
             dependencies: ["SubtitleKit"]),
