@@ -4,5 +4,11 @@ Package for creating, modifying, and managing subtitle files, such as SubRip (.s
 
 ## Supported formats
 
-Currently only SubRip (.srt) is supported, but it is planned to add support to
-other formats, such as WebVTT (.vtt).
+| Format | File extension | Is supported |
+| --- | --- | --- |
+| SubRip | .srt | Yes |
+| WebVTT | .vtt | No |
+| SubViewer | .sub | No |
+| YouTube Captions | .sbv | No |
+| TTML | .ttml | No |
+| DXFP | .dxfp | No |
