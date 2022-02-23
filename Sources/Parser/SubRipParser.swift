@@ -38,7 +38,7 @@ public struct SubRipParser: Parser {
                 throw ParserError.badIndexDeclaration(column: 1, row: index)
             }
             
-            let timeInterval = try parseTimeInterval(rawString: nodeRows[1], rowOperatedOn: index)
+            let timeInterval = try parseTimeInterval(rawString: nodeRows[1], rowOperatedOn: index + 1)
             
             var textRows = nodeRows
             textRows.remove(at: 0)
